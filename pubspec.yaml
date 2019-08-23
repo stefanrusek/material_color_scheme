@@ -1,6 +1,6 @@
 name: material_color_scheme
 description: A tool for easily making material and flutter color schemes.
-version: 0.0.1
+version: 0.0.2
 author: Stefan Rusek <stefan@ergonlabs.com>
 homepage: https://github.com/stefanrusek/material_color_scheme
 

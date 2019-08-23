@@ -1,0 +1,19 @@
+name: example
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.2.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  material_color_scheme:
+    path: ..
+flutter:
+  uses-material-design: true
