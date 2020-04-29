@@ -38,20 +38,20 @@ class MaterialColorGenerator {
     var accentBase = HSLColor.fromColor(Color.lerp(baseDark, baseTriad, 0.15));
     return {
       100: accentBase
-          .withSaturation((accentBase.saturation + 0.80).clamp(0, 1))
-          .withLightness((accentBase.lightness + 0.65).clamp(0, 1))
+          .withSaturation((accentBase.saturation + 0.80).clamp(0.0, 1.0))
+          .withLightness((accentBase.lightness + 0.65).clamp(0.0, 1.0))
           .toColor(),
       200: accentBase
-          .withSaturation((accentBase.saturation + 0.80).clamp(0, 1))
-          .withLightness((accentBase.lightness + 0.55).clamp(0, 1))
+          .withSaturation((accentBase.saturation + 0.80).clamp(0.0, 1.0))
+          .withLightness((accentBase.lightness + 0.55).clamp(0.0, 1.0))
           .toColor(),
       400: accentBase
-          .withSaturation((accentBase.saturation + 1.00).clamp(0, 1))
-          .withLightness((accentBase.lightness + 0.45).clamp(0, 1))
+          .withSaturation((accentBase.saturation + 1.00).clamp(0.0, 1.0))
+          .withLightness((accentBase.lightness + 0.45).clamp(0.0, 1.0))
           .toColor(),
       700: accentBase
-          .withSaturation((accentBase.saturation + 1.00).clamp(0, 1))
-          .withLightness((accentBase.lightness + 0.40).clamp(0, 1))
+          .withSaturation((accentBase.saturation + 1.00).clamp(0.0, 1.0))
+          .withLightness((accentBase.lightness + 0.40).clamp(0.0, 1.0))
           .toColor(),
     };
   }
