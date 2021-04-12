@@ -22,17 +22,17 @@ void main() {
     var blerpMax = 1.0;
     var black = Color(0xFF000000);
     var dark = _multiply(base, base); //Color(0xff000000);
-    var target = base[shade];
+    var target = base[shade]!;
 
     print(target);
     do {
       var blerpMid = (blerpMin + blerpMax) / 2;
-      var mid = Color.lerp(black, start, blerpMid);
+      var mid = Color.lerp(black, start, blerpMid)!;
       print("pass ${12 - depth} -> $mid ${wrongness(mid, target)}");
       if (mid == target) return blerpMid;
 
-      var blow = Color.lerp(black, start, blerpMin);
-      var bhigh = Color.lerp(black, start, blerpMax);
+      var blow = Color.lerp(black, start, blerpMin)!;
+      var bhigh = Color.lerp(black, start, blerpMax)!;
 
       var wrongs = [
         [0, 1000000000],
@@ -71,15 +71,15 @@ void main() {
     print(target);
     do {
       var mlerpMid = (mlerpMin + mlerpMax) / 2;
-      blerp = findBLerp(base, Color.lerp(dark, base, mlerpMid), shade);
-      var mid = Color.lerp(black, Color.lerp(dark, base, mlerpMid), blerp);
-      print("pass ${12 - depth} -> $mid ${wrongness(mid, target)}");
+      blerp = findBLerp(base, Color.lerp(dark, base, mlerpMid)!, shade);
+      var mid = Color.lerp(black, Color.lerp(dark, base, mlerpMid), blerp)!;
+      print("pass ${12 - depth} -> $mid ${wrongness(mid, target!)}");
       if (mid == target) return [mlerpMid, blerp];
 
       var mlow = Color.lerp(black, Color.lerp(dark, base, mlerpMin),
-          findBLerp(base, Color.lerp(dark, base, mlerpMin), shade));
+          findBLerp(base, Color.lerp(dark, base, mlerpMin)!, shade))!;
       var mhigh = Color.lerp(black, Color.lerp(dark, base, mlerpMax),
-          findBLerp(base, Color.lerp(dark, base, mlerpMax), shade));
+          findBLerp(base, Color.lerp(dark, base, mlerpMax)!, shade))!;
 
       var wrongs = [
         [0, wrongness(mlow, target)],
@@ -101,7 +101,7 @@ void main() {
   }
 
   search(int depth, double num, double offsetStep, int score(double)) {
-    double bestOffset;
+    double bestOffset = 0;
     int best = 10000000;
     for (var i = 0, offset = 0.0; i < 10; i++, offset += offsetStep) {
       int value = score(num + offset);
@@ -118,7 +118,7 @@ void main() {
   }
 
   findLerps(MaterialColor color, int shade) {
-    var goal = color[shade];
+    var goal = color[shade]!;
     var df = 1.0, lf = 1.0, wf = 1.0, bf = 1.0;
     for (var tries = 0; tries < 10; tries++) {
       lf = search(
@@ -139,7 +139,7 @@ void main() {
     var swatch = gen.generateSwatch(expected);
 
     for (var key in swatch.keys) {
-      expect(wrongness(swatch[key], expected[key]), lessThanOrEqualTo(1000),
+      expect(wrongness(swatch[key]!, expected[key]!), lessThanOrEqualTo(1000),
           reason: "color $name[$key] should match");
     }
   }

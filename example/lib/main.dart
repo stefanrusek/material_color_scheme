@@ -76,7 +76,7 @@ class ColorTile extends StatelessWidget {
   final MaterialColor swatch;
   final ValueChanged<Color> onTap;
 
-  const ColorTile({Key key, this.swatch, this.onTap}) : super(key: key);
+  const ColorTile({Key? key, required this.swatch, required this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => ListTile(
@@ -93,15 +93,15 @@ class ColorTile extends StatelessWidget {
       );
 
   List<Color> get colors => [
-        swatch[50],
-        swatch[100],
-        swatch[200],
-        swatch[300],
-        swatch[400],
-        swatch[500],
-        swatch[600],
-        swatch[700],
-        swatch[800],
-        swatch[900],
+        swatch[50]!,
+        swatch[100]!,
+        swatch[200]!,
+        swatch[300]!,
+        swatch[400]!,
+        swatch[500]!,
+        swatch[600]!,
+        swatch[700]!,
+        swatch[800]!,
+        swatch[900]!,
       ];
 }

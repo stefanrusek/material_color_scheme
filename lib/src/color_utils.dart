@@ -15,8 +15,8 @@ Color lighten(Color c) => Color.fromARGB(
     (sqrt(c.green / 255) * 255).floor(),
     (sqrt(c.blue / 255) * 255).floor());
 
-Color tweak(Color base, double bf, double df, double lf, double wf, {Color darker, Color lighter}) {
+Color tweak(Color base, double bf, double df, double lf, double wf, {Color? darker, Color? lighter}) {
   if (darker == null) darker = darken(base);
   if (lighter == null) lighter = lighten(base);
-  return Color.lerp(Colors.black, Color.lerp(Colors.white, Color.lerp(darker, Color.lerp(lighter, base, lf), df), wf), bf);
+  return Color.lerp(Colors.black, Color.lerp(Colors.white, Color.lerp(darker, Color.lerp(lighter, base, lf), df), wf), bf)!;
 }

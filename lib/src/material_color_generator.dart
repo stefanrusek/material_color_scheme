@@ -35,7 +35,7 @@ class MaterialColorGenerator {
     var baseDark = darken(hex);
     var hslBase = HSLColor.fromColor(hex);
     var baseTriad = hslBase.withHue((hslBase.hue + 270) % 360).toColor();
-    var accentBase = HSLColor.fromColor(Color.lerp(baseDark, baseTriad, 0.15));
+    var accentBase = HSLColor.fromColor(Color.lerp(baseDark, baseTriad, 0.15)!);
     return {
       100: accentBase
           .withSaturation((accentBase.saturation + 0.80).clamp(0, 1))
