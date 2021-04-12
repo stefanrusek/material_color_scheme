@@ -1,3 +1,5 @@
+## [0.0.3] - Null saftey
+
 ## [0.0.2] - Fixes and example
 
 ## [0.0.1+1] - Update docs
